@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php spark migrate:*)",
+      "Bash(mysql:*)",
+      "Bash(php spark db:seed:*)",
+      "Bash(php spark migrate:refresh:*)"
+    ]
+  }
+}

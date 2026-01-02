@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Employee Digital Hub */
+
+/* Base typography */
+@layer base {
+  body {
+    @apply bg-base-100 text-base-content;
+  }
+}
+
+/* Custom components */
+@layer components {
+  /* Sidebar navigation */
+  .sidebar {
+    @apply w-64 bg-base-200 min-h-screen fixed left-0 top-0 z-40;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 hover:bg-base-300 transition-colors rounded-lg mx-2;
+  }
+
+  .sidebar-item.active {
+    @apply bg-primary text-primary-content;
+  }
+
+  /* Main content area */
+  .main-content {
+    @apply ml-64 p-6 min-h-screen;
+  }
+
+  /* Card components */
+  .stat-card {
+    @apply card bg-base-100 shadow-md hover:shadow-lg transition-shadow;
+  }
+
+  /* Table styles */
+  .data-table {
+    @apply table table-zebra w-full;
+  }
+
+  /* Form styles */
+  .form-group {
+    @apply form-control w-full mb-4;
+  }
+
+  .form-label {
+    @apply label-text font-medium mb-1;
+  }
+
+  /* Badge variants */
+  .badge-status-active {
+    @apply badge badge-success;
+  }
+
+  .badge-status-inactive {
+    @apply badge badge-error;
+  }
+
+  .badge-status-pending {
+    @apply badge badge-warning;
+  }
+
+  /* Toast notifications */
+  .toast-container {
+    @apply toast toast-top toast-end z-50;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .text-truncate {
+    @apply truncate;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+}

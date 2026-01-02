@@ -1,0 +1,131 @@
+#-------------------------
+# Operating Specific Junk Files
+#-------------------------
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+#-------------------------
+# Environment Files (SECURITY RISK)
+#-------------------------
+.env
+.env.test
+.env.production
+.vagrant
+Vagrantfile
+
+#-------------------------
+# Temporary Files (CodeIgniter/PHP)
+#-------------------------
+writable/cache/*
+!writable/cache/index.html
+
+writable/logs/*
+!writable/logs/index.html
+
+writable/session/*
+!writable/session/index.html
+
+writable/uploads/*
+!writable/uploads/index.html
+
+writable/debugbar/*
+!writable/debugbar/index.html
+
+php_errors.log
+
+#-------------------------
+# User Guide Temp Files
+#-------------------------
+user_guide_src/build/*
+user_guide_src/cilexer/build/*
+user_guide_src/cilexer/dist/*
+user_guide_src/cilexer/pycilexer.egg-info/*
+
+#-------------------------
+# Test Files
+#-------------------------
+tests/coverage*
+phpunit
+.phpunit.result.cache
+
+#-------------------------
+# Dependencies (PHP & JS)
+#-------------------------
+vendor/
+node_modules/
+package-lock.json # (Opsional: Hapus baris ini jika ingin mengunci versi library JS)
+yarn.lock         # (Opsional: Hapus baris ini jika pakai Yarn)
+bun.lockb         # (Opsional: Hapus baris ini jika pakai Bun)
+
+#-------------------------
+# Modern Web / Build Output (React/Tailwind/Vite)
+#-------------------------
+# Production Build Folders
+dist/
+build/
+out/
+
+# NPM / Yarn / Bun Logs (File sampah log error)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cache directory
+.eslintcache
+.cache/
+
+#-------------------------
+# IDE / Development Files
+#-------------------------
+_modules/*
+.php-version
+
+# Jetbrains (PHPStorm)
+.idea/
+*.iml
+
+# NetBeans
+/nbproject/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/nbactions.xml
+/nb-configuration.xml
+/.nb-gradle/
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+.phpintel
+/api/
+
+# Visual Studio Code
+.vscode/
+
+# Testing Results
+/results/
+/phpunit*.xml
