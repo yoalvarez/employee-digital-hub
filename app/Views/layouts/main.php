@@ -22,26 +22,44 @@
         <?= $this->include('components/sidebar') ?>
 
         <!-- Main Content -->
-        <div id="main-content" class="flex-1 ml-64 min-h-screen transition-all duration-300">
-            <!-- Navbar -->
-            <?= $this->include('components/navbar') ?>
+        <div id="main-content" class="flex-1 min-h-screen transition-all duration-300 lg:ml-64">
+            <!-- Mobile Header -->
+            <header class="sticky top-0 z-20 bg-base-100 border-b border-base-300 lg:hidden">
+                <div class="flex items-center justify-between p-4">
+                    <button onclick="openMobileSidebar()" class="btn btn-ghost btn-square">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <h1 class="text-lg font-semibold"><?= $pageTitle ?? 'EDH' ?></h1>
+                    <div class="w-10"></div>
+                </div>
+            </header>
 
             <!-- Page Content -->
-            <main class="p-6">
-                <!-- Breadcrumb -->
-                <?php if (isset($breadcrumb)): ?>
-                <div class="text-sm breadcrumbs mb-4">
-                    <ul>
-                        <?php foreach ($breadcrumb as $item): ?>
-                        <li>
-                            <?php if (isset($item['url'])): ?>
-                            <a href="<?= $item['url'] ?>"><?= $item['title'] ?></a>
-                            <?php else: ?>
-                            <?= $item['title'] ?>
-                            <?php endif; ?>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
+            <main class="p-4 lg:p-6">
+                <!-- Page Header (Desktop) -->
+                <?php if (isset($pageTitle)): ?>
+                <div class="hidden lg:flex items-center justify-between mb-6">
+                    <div>
+                        <h1 class="text-2xl font-bold"><?= $pageTitle ?></h1>
+                        <?php if (isset($breadcrumb) && count($breadcrumb) > 1): ?>
+                        <div class="text-sm breadcrumbs mt-1">
+                            <ul>
+                                <?php foreach ($breadcrumb as $item): ?>
+                                <li>
+                                    <?php if (isset($item['url'])): ?>
+                                    <a href="<?= $item['url'] ?>" class="text-base-content/70 hover:text-primary"><?= $item['title'] ?></a>
+                                    <?php else: ?>
+                                    <span class="text-base-content/50"><?= $item['title'] ?></span>
+                                    <?php endif; ?>
+                                </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    <?= $this->renderSection('page_actions') ?>
                 </div>
                 <?php endif; ?>
 

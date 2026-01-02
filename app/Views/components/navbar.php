@@ -76,10 +76,31 @@
 <script>
     document.addEventListener("click", (e) => {
         const dropdowns = document.querySelectorAll("details.dropdown");
+        const clickedDropdown = e.target.closest("details.dropdown");
+
         dropdowns.forEach((dropdown) => {
-            if (!dropdown.contains(e.target)) {
+            // Tutup dropdown lain yang tidak diklik
+            if (dropdown !== clickedDropdown) {
                 dropdown.removeAttribute("open");
             }
+        });
+    });
+
+    // Pastikan summary dapat diklik dengan benar
+    document.querySelectorAll("details.dropdown > summary").forEach((summary) => {
+        summary.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const parent = summary.parentElement;
+            const isOpen = parent.hasAttribute("open");
+
+            // Tutup semua dropdown lain
+            document.querySelectorAll("details.dropdown").forEach((dropdown) => {
+                if (dropdown !== parent) {
+                    dropdown.removeAttribute("open");
+                }
+            });
+
+            // Toggle dropdown saat ini (biarkan browser handle)
         });
     });
 </script>
